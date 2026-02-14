@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RJ Editing Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #eeeeee;
+    color: #111;
+    scroll-behavior: smooth;
+}
+
+/* HERO */
+.container {
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.logo, h1, .tagline {
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards;
+}
+h1 { animation-delay: 1s; }
+.tagline { animation-delay: 1.4s; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.logo {
+    width: 380px;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: 46px;
+    letter-spacing: 10px;
+    margin: 0;
+}
+
+.tagline {
+    font-size: 18px;
+    letter-spacing: 4px;
+    color: #555;
+    margin-top: 12px;
+}
+
+/* SCROLL ARROW */
+.scroll-arrow {
+    margin-top: 50px;
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards 2s, bounce 1.8s infinite ease-in-out 3.2s;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.scroll-arrow svg {
+    width: 26px;
+    height: 26px;
+    fill: #111;
+}
+
+@keyframes bounce {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(8px); }
+    100% { transform: translateY(0); }
+}
+
+.scroll-arrow:hover {
+    transform: translateY(4px);
+}
+
+/* SERVICES */
+.services {
+    padding: 60px 20px 110px;
+    text-align: center;
+}
+
+.service-item {
+    font-size: 23px;
+    margin: 38px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.service-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    fill: #111;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover .icon {
+    transform: scale(1.15);
+}
+
+/* BUTTON */
+.cta {
+    margin-top: 65px;
+}
+
+.btn {
+    padding: 15px 48px;
+    background-color: #111;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    border: 2px solid #111;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: #111;
+    transform: scale(1.05);
+}
+
+footer {
+    padding: 40px 20px;
+    font-size: 14px;
+    color: #777;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <img src="logo.png" alt="RJ Logo" class="logo">
+    <h1>RJ EDITING STUDIO</h1>
+    <p class="tagline">Professional Photo & Video Editing</p>
+
+    <div class="scroll-arrow" onclick="scrollToServices()">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 16l-6-6h12z"/>
+        </svg>
+    </div>
+</div>
+
+<div id="services" class="services">
+
+    <!-- Video -->
+    <div class="service-item">
+        <svg class="icon" viewBox="0 0 24 24">
+            <path d="M4 6h12a2 2 0 0 1 2 2v8H4z"/>
+            <polygon points="18,8 22,6 22,18 18,16"/>
+        </svg>
+        Cinematic Video Editing
+    </div>
+
+    <!-- Photo -->
+    <div class="service-item">
+        <svg class="icon" viewBox="0 0 24 24">
+            <rect x="3" y="5" width="18" height="14" rx="3"/>
+            <circle cx="12" cy="12" r="4" fill="#eeeeee"/>
+        </svg>
+        Professional Photo Edit Works
+    </div>
+
+    <!-- UPDATED COLOR GRADING ICON (SLIDERS) -->
+    <div class="service-item">
+        <svg class="icon" viewBox="0 0 24 24">
+            <rect x="4" y="5" width="16" height="2"/>
+            <rect x="4" y="11" width="16" height="2"/>
+            <rect x="4" y="17" width="16" height="2"/>
+            <circle cx="9" cy="6" r="3"/>
+            <circle cx="15" cy="12" r="3"/>
+            <circle cx="12" cy="18" r="3"/>
+        </svg>
+        Advanced Color Grading
+    </div>
+
+    <!-- Reels -->
+    <div class="service-item">
+        <svg class="icon" viewBox="0 0 24 24">
+            <rect x="7" y="2" width="10" height="20" rx="3"/>
+        </svg>
+        Reels / Shorts Video Edits
+    </div>
+
+    <!-- Premium -->
+    <div class="service-item">
+        <svg class="icon" viewBox="0 0 24 24">
+            <path d="M12 2l3 6 6 .9-4.5 4.2 1 6.5L12 17l-5.5 2.6 1-6.5L3 8.9 9 8z"/>
+        </svg>
+        Premium Quality Delivery
+    </div>
+
+    <div class="cta">
+    <a href="booking.html" class="btn">Book Your Edit Now</a>
+</div>
+
+
+</div>
+
+<footer>
+    © 2026 RJ Editing Studio
+</footer>
+
+<script>
+const items = document.querySelectorAll('.service-item');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, { threshold: 0.3 });
+
+items.forEach(item => observer.observe(item));
+
+function scrollToServices() {
+    document.getElementById("services").scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
+</body>
+</html>
